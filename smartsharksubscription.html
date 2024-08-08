@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .success-message {
+            display: none;
+            color: green;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="subscriptionForm">
+            <div class="form-group">
+                <label for="name">First & Last Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">I acknowledge that Smart Shark Platform, Inc. will use this contact information to communicate with me about Smart Shark Platform promotions and events.</label>
+            </div>
+            <div class="form-group">
+                <button type="submit">Subscribe</button>
+            </div>
+            <div class="success-message" id="successMessage">
+                Thank you for subscribing to Smart Shark notifications. You've been added to the waitlist. You'll be hearing from us soon.
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Simulate form submission
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('subscriptionForm').reset();
+            }, 500);
+
+            // In a real-world scenario, here you would use AJAX or a form submission to send data to your server
+            // Example:
+            // fetch('https://example.com/submit', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({
+            //         name: document.getElementById('name').value,
+            //         phone: document.getElementById('phone').value,
+            //         email: document.getElementById('email').value,
+            //         consent: document.getElementById('consent').checked
+            //     })
+            // }).then(response => response.json()).then(data => {
+            //     document.getElementById('successMessage').style.display = 'block';
+            //     document.getElementById('subscriptionForm').reset();
+            // }).catch(error => {
+            //     console.error('Error:', error);
+            // });
+        });
+    </script>
+</body>
+</html>
